@@ -7,7 +7,7 @@ from pathlib import Path
 
 # removed sudo commands to allow auto start at boot
 # Configs
-NGROK_TOKEN = "2RejkrtN5OU2H8coD1MCoAXsamb_2n6NBHCdo3z43hof6weMT"
+NGROK_TOKEN = "YOUR_NGROK_TOKEN_HERE"
 NGROK_IMAGE = "ngrok/ngrok:latest"
 NGROK_PORT = "5678"
 CONTAINER_NAME = "ngrok-n8n"
