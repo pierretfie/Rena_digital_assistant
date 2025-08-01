@@ -1,0 +1,27 @@
+[Unit]
+Description=Wake_rena_up
+After=graphical.target multi-user.target sound.target syslog.target network.target dbus.service
+Wants=sound.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /home/eclipse/Desktop/restart_rena.py
+ExecStartPre=/bin/sleep 40
+Type=oneshot
+RemainAfterExit=true
+Restart=on-failure
+RestartSec=10
+
+# Allow time for dependencies to be ready
+ExecStartPre=/bin/sleep 10  
+
+# Use systemd's DBus session instead of launching a new one
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/eclipse/.Xauthority
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+Environment=PULSE_RUNTIME_PATH=/run/user/1000/pulse
+
+
+[Install]
+WantedBy=graphical.target
