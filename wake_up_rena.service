@@ -6,7 +6,7 @@ Wants=sound.target
 [Service]
 Type=simple
 User=root
-ExecStart=/usr/bin/python3 /home/eclipse/Desktop/restart_rena.py
+ExecStart=/usr/bin/python3 /home/{user name}/Desktop/restart_rena.py
 ExecStartPre=/bin/sleep 40
 Type=oneshot
 RemainAfterExit=true
